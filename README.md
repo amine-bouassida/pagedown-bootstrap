@@ -1,7 +1,8 @@
 # PageDown-Bootstrap
 
 A **jQuery** plugin that dynamically generates a **WYSIWYG** editor for **Markdown** with integrated **Twitter Bootstrap** styling.
-Code sample blocks are highlighted using [http://highlightjs.org/](Highlight.js).
+
+Code sample blocks are highlighted using [Highlight.js](http://highlightjs.org/).
 
 ## Requirements
 * [jQuery 1.9+](http://jquery.com) (you know you should be keeping it up to date)
