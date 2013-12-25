@@ -78,3 +78,10 @@
   font-size: 0.8em;
   font-weight: bold;
 }
+pre {
+  border: none;
+  padding: 0;
+}
+pre code {
+  border-radius: inherit;
+}

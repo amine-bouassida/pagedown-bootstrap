@@ -10,6 +10,7 @@
 
 	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
 	<link href="../css/jquery.pagedown-bootstrap.css" rel="stylesheet">
+	<link href="../css/monokai_sublime.min.css" rel="stylesheet">
 
 	<style>
 		body {
@@ -35,13 +36,13 @@
 		<div class="jumbotron">
 			<h1>PageDown-Bootstrap</h1>
 			<p>
-				An extension of <a href="http://code.google.com/p/pagedown/">Pagedown</a> to neatly integrate into <a href="http://getbootstrap.com/">Twitter Bootstrap</a> for a WYSIWYG Markdown editor. This project is a fork of the work of <a href="https://github.com/samwillis/pagedown-bootstrap">Sam Willis</a>.
+				An extension of <a href="http://code.google.com/p/pagedown/">Pagedown</a> to neatly integrate into <a href="http://getbootstrap.com/">Twitter Bootstrap</a> for a WYSIWYG Markdown editor with the possibility to highlight code blocks. This project is a fork of the work of <a href="https://github.com/kevinoconnor7/pagedown-bootstrap">Kevin O'Connor</a> that was originally forked from <a href="https://github.com/samwillis/pagedown-bootstrap">Sam Willis</a>'s project.
 			</p>
 			<p>
 				This project is hosted on <a href="https://github.com/kevinoconnor7/pagedown-bootstrap/">GitHub</a> where <a href="https://github.com/kevinoconnor7/pagedown-bootstrap/issues">issues</a> can be reported. It is released under the <a href="https://raw.github.com/kevinoconnor7/pagedown-bootstrap/master/LICENSE.txt">MIT License</a>.
 			</p>
 			<p>
-				<a class="btn btn-primary btn-large" href="https://github.com/kevinoconnor7/pagedown-bootstrap/">
+				<a class="btn btn-primary btn-large" href="https://github.com/amine-bouassida/pagedown-bootstrap/">
 				Fork on GitHub
 				</a>
 			</p>
@@ -92,6 +93,14 @@
 						An array of objects that define hooks for the converter. Each object should define a string, 'event', and a function, 'callback'. A full list of events can be found <a href="http://code.google.com/p/pagedown/wiki/PageDown#Hooks_on_the_converter_object">here</a>.
 					</td>
 				</tr>
+				<tr>
+					<td>highlight</td>
+					<td>boolean</td>
+					<td>true</td>
+					<td>
+						When set to true, the code parts are highlighted using <a href="http://highlightjs.org/">Highlight.js</a>. You have to add the css for highlight.js when this is set to true. In this demo the <strong>Monokai Sublime</strong> style. You can find some interesting styles <a href="http://jmblog.github.io/color-themes-for-highlightjs/">here</a>.
+					</td>
+				</tr>
 			</tbody>
 		</table>
 
@@ -124,6 +133,18 @@ This is the *first* editor.
 Just plain **Markdown**, except that the input is sanitized:
 
 <marquee>I'm the ghost from the past!</marquee>
+
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <script type="text/javascript">
+          console.log("I am a script sample.");
+        </script>
+      </head>
+      <body>
+        <h1>This is a code sample!</h1>
+      </body>
+    </html>
 </textarea>
 		<h4>Code:</h4>
 		<script src="https://gist.github.com/kevinoconnor7/5432336.js"></script>
@@ -177,7 +198,7 @@ It also includes a help button.
 			});
 
 			$('.wmd-preview').addClass('well');
-
+			hljs.initHighlightingOnLoad();
 		})();
 	</script>
 </body>

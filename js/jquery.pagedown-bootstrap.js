@@ -30,7 +30,8 @@
 		var settings = $.extend( {
 			'sanatize'				: true,
 			'help'						: null,
-			'hooks'						: Array()
+			'hooks'						: Array(),
+			'highlight'				: true
 		}, options);
 
 		return this.each(function() {   
@@ -86,6 +87,15 @@
 			//Setup editor
 			var editor = new Markdown.Editor(converter, "-"+idAppend.toString(), help);
       editor.run();
+      if(settings.highlight)
+      {
+	      editor.hooks.chain("onPreviewRefresh", function () {
+					var previewObjs = $(document).find('#wmd-preview-'+idAppend).find("pre");
+					previewObjs.each(function () {
+						hljs.highlightBlock(this);
+					});
+	    	});
+      }
 
 		});
 
